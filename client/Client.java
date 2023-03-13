@@ -11,7 +11,7 @@ public class Client extends Thread
 	private PrintWriter socketOutput = null;
 	private BufferedReader socketInput = null;
 
-	public void run(){
+	public void run(String[] args){
 
 		try{
 
@@ -58,7 +58,7 @@ public class Client extends Thread
 				}
 
 				//send data to server
-				fromUser = stdIn.readLine();
+				fromUser = args[0];
 				if(fromUser!=null){
 
 					System.out.println("Client: " + fromUser);
@@ -88,7 +88,7 @@ public class Client extends Thread
 	{
 
 			Client c = new Client();
-			c.run();
+			c.run(args);
 
 	}
 }
